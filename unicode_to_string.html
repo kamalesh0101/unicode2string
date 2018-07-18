@@ -1,0 +1,24 @@
+<!-- author: Kamalesh -->
+<!-- 18-11-2017 -->
+
+<html> 
+<head>
+<script>
+function unicodeToChar(text) {
+   return text.replace(/\\u[\dA-F]{4}/gi, 
+          function (match) {
+               return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
+          });
+}
+
+function convert(){
+	document.getElementById("texta").value = unicodeToChar(document.getElementById("texta").value);
+}
+</script>
+</head>
+<h2>Unicode to String Converter (JS Version)</h2>
+<body>
+<textarea id="texta" rows="20" cols="100" name="str" placeholder="Enter text in Unicode and click submit."></textarea>
+<input type="submit" onclick="convert()">
+</body>
+</html>
